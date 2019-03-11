@@ -69,7 +69,7 @@ def receive_message():
                                 print("Classification started for image %s" % str(img_url))
                                 response = forward_request(recipient_id, img_url)
                                 if response is not None:
-                                    send_message(recipient_id, SUCCESSFUL_IMAGE_RECOGNITION_RESPONSE)
+                                    send_message(recipient_id, response)
                                 else:
                                     send_message(recipient_id, ERROR_IMAGE_RECOGNITION_RESPONSE)
                     except Exception as e:
