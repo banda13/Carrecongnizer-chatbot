@@ -59,12 +59,13 @@ def receive_message():
                             send_message(recipient_id, TO_LITTLE_ATTACHMENTS)
                         else:
                             print("ok length is ok")
-                            if attachments[0]['type'] != 'image':
+                            attachment = json.loads(attachments[0])
+                            if attachment['type'] != 'image':
                                 send_message(recipient_id, BAD_ATTACHMENT_TYPE)
                             else:
                                 print("ok type is ok!")
-                                print(attachments[0])
-                                img_url = attachments[0]['payload']['url']
+                                print(attachment)
+                                img_url = json.loads(attachment['payload'])['url']
                                 print("Classification started for image %s" % str(img_url))
                                 response = forward_request(recipient_id, img_url)
                                 if response is not None:
@@ -72,6 +73,7 @@ def receive_message():
                                 else:
                                     send_message(recipient_id, ERROR_IMAGE_RECOGNITION_RESPONSE)
                     except Exception as e:
+                        print(str(e))
                         send_message(recipient_id, ERROR_IMAGE_RECOGNITION_RESPONSE)
     return "Message Processed"
 
