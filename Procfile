@@ -1,1 +1,1 @@
-web: gunicorn run:webhook-server
+web: gunicorn --bind 0.0.0.0:5000 webhook-server:app
