@@ -49,17 +49,23 @@ def receive_message():
                         send_message(recipient_id, ERROR_MESSAGE)
                 if message['message'].get('attachments'):
                     try:
+                        print("Hmm I got an image")
                         send_message(recipient_id, CLASSIFICATION_STARTED)
                         attachments = message['message'].get('attachments')
+                        print(attachments)
                         if len(attachments) > 1:
                             send_message(recipient_id, TO_MANY_ATTACHMENTS)
                         elif len(attachments < 1):
                             send_message(recipient_id, TO_LITTLE_ATTACHMENTS)
                         else:
+                            print("ok length is ok")
                             if attachments[0]['type'] != 'image':
                                 send_message(recipient_id, BAD_ATTACHMENT_TYPE)
                             else:
+                                print("ok type is ok!")
+                                print(attachments[0])
                                 img_url = attachments[0]['payload']['url']
+                                print("Classification started for image %s" % str(img_url))
                                 response = forward_request(recipient_id, img_url)
                                 if response is not None:
                                     send_message(recipient_id, SUCCESSFUL_IMAGE_RECOGNITION_RESPONSE)
