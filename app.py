@@ -55,9 +55,9 @@ def receive_message():
 
 def verify_fb_token(token_sent):
     if token_sent == VERIFY_TOKEN:
+        print(token_sent)
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
-
 
 
 def send_message(recipient_id, response):
