@@ -20,7 +20,7 @@ def availability_check():
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():
     if request.method == 'GET':
-        token_sent = request.args.get("hub. ify_token")
+        token_sent = request.args.get("hub.verify_token")
         return verify_fb_token(token_sent)
 
     else:
