@@ -59,13 +59,13 @@ def receive_message():
                             send_message(recipient_id, TO_LITTLE_ATTACHMENTS)
                         else:
                             print("ok length is ok")
-                            attachment = json.loads(attachments[0])
+                            attachment = attachments[0]
                             if attachment['type'] != 'image':
                                 send_message(recipient_id, BAD_ATTACHMENT_TYPE)
                             else:
                                 print("ok type is ok!")
                                 print(attachment)
-                                img_url = json.loads(attachment['payload'])['url']
+                                img_url = attachment['payload']['url']
                                 print("Classification started for image %s" % str(img_url))
                                 response = forward_request(recipient_id, img_url)
                                 if response is not None:
