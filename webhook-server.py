@@ -11,6 +11,7 @@ ACCESS_TOKEN = 'EAAECfzD3f4EBACw3TVuZClCSpZBHZC49qDcSJPIROZBUnI0kwHZCxT1UMXks46l
 VERIFY_TOKEN = 'SUPER123SAFE_KAPPA'
 bot = Bot(ACCESS_TOKEN)
 
+
 @app.route("/check", methods=['GET'])
 def availability_check():
     return "Ok, server is up, and listening!"
