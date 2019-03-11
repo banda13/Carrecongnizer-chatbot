@@ -55,7 +55,7 @@ def receive_message():
                         print(attachments)
                         if len(attachments) > 1:
                             send_message(recipient_id, TO_MANY_ATTACHMENTS)
-                        elif len(attachments < 1):
+                        elif len(attachments) < 1:
                             send_message(recipient_id, TO_LITTLE_ATTACHMENTS)
                         else:
                             print("ok length is ok")
