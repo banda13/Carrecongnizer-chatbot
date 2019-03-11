@@ -1,16 +1,21 @@
 import random
-
+import urllib.request
+import requests
+import json
 from flask import Flask, request
 from pymessenger import Bot
 
 from commands import WELCOME_COMMAND, DETAILS, WEBSITE_LINK, HELP_COMMAND
-from responses import WELCOME_MESSAGE, HELP_RESPONSE, NOT_IMPLEMENTED_YET, WEBSITE_RESPONSE, ERROR_MESSAGE, SUCCESSFUL_IMAGE_RECOGNITION_RESPONSE, ERROR_IMAGE_RECOGNITION_RESPONSE
+from responses import WELCOME_MESSAGE, HELP_RESPONSE, NOT_IMPLEMENTED_YET, WEBSITE_RESPONSE, ERROR_MESSAGE,\
+    SUCCESSFUL_IMAGE_RECOGNITION_RESPONSE, ERROR_IMAGE_RECOGNITION_RESPONSE, CLASSIFICATION_STARTED, AUTHENTICATION_ERROR, TO_MANY_ATTACHMENTS, TO_LITTLE_ATTACHMENTS, UNKNOWN_CLASSIFICATION_ERROR, BAD_ATTACHMENT_TYPE
+from system_properties import LOGIN_ADDRESS, SIGN_IN_ADDRESS, CLASSIFICATION_FORWARD_ADDRESS
 
 app = Flask(__name__)
 ACCESS_TOKEN = 'EAAECfzD3f4EBACw3TVuZClCSpZBHZC49qDcSJPIROZBUnI0kwHZCxT1UMXks46l0t7ZA3crmdOZBGX1g2eebD92TWB3joT5RKUyncfZBqR03gFdcrhBQ9pGVNqgRMJlhUin3jXggDUtEvtVZCJy4uU7ijIknu5SkfcQ4waQNAMhJh4AZDZD'
 VERIFY_TOKEN = 'SUPER123SAFE_KAPPA'
 bot = Bot(ACCESS_TOKEN)
 
+cached_users = {}
 
 @app.route("/check", methods=['GET'])
 def availability_check():
@@ -44,18 +49,102 @@ def receive_message():
                         send_message(recipient_id, ERROR_MESSAGE)
                 if message['message'].get('attachments'):
                     try:
-                        print(message)
-                        print(type(message['message'].get('attachments')))
-                        print(message['sender'])
-                        send_message(recipient_id, SUCCESSFUL_IMAGE_RECOGNITION_RESPONSE)
+                        send_message(recipient_id, CLASSIFICATION_STARTED)
+                        attachments = message['message'].get('attachments')
+                        if len(attachments) > 1:
+                            send_message(recipient_id, TO_MANY_ATTACHMENTS)
+                        elif len(attachments < 1):
+                            send_message(recipient_id, TO_LITTLE_ATTACHMENTS)
+                        else:
+                            if attachments[0]['type'] != 'image':
+                                send_message(recipient_id, BAD_ATTACHMENT_TYPE)
+                            else:
+                                img_url = attachments[0]['payload']['url']
+                                response = forward_request(recipient_id, img_url)
+                                if response is not None:
+                                    send_message(recipient_id, SUCCESSFUL_IMAGE_RECOGNITION_RESPONSE)
+                                else:
+                                    send_message(recipient_id, ERROR_IMAGE_RECOGNITION_RESPONSE)
                     except Exception as e:
                         send_message(recipient_id, ERROR_IMAGE_RECOGNITION_RESPONSE)
     return "Message Processed"
 
 
+def forward_request(recipient_id, img_url):
+    user_token = cached_users[recipient_id]
+    if user_token is None:
+        signin_result = try_sign_in(recipient_id, recipient_id)
+        token = login(recipient_id, recipient_id)
+        if token is not None:
+            classification_result = do_classification(token, img_url)
+            return classification_result
+        else:
+            return None
+    else:
+        classification_result = do_classification(user_token, img_url)
+        if classification_result is None:
+            token = login(recipient_id, recipient_id)
+            if token is not None:
+                classification_result = do_classification(token, img_url)
+            else:
+                return None
+        else:
+            return classification_result
+
+
+def do_classification(token, img_url):
+    try:
+        img_file = urllib.request.urlretrieve(img_url)
+        print("File download succeeded")
+
+        files = {'carpic': img_file}
+        headers = {'Authorization': token}
+
+        print("Classification started")
+        class_result = requests.post(CLASSIFICATION_FORWARD_ADDRESS, headers=headers, files=files)
+        print("Classification ended")
+        return class_result.text
+    except Exception as e:
+        return None
+
+def try_sign_in(userid, userps):
+    try:
+        body = {
+            "first_name": "",
+            "last_name": "",
+            "email": userid,
+            "password": userps
+        }
+        print("Trying to sign in as %s" % str(userid))
+        signin_result = requests.post(SIGN_IN_ADDRESS, body)
+        if signin_result.status_code == 200 | signin_result.status_code == 201:
+            print("User registration success, welcome %s" % str(userid))
+            return True
+        else:
+            print("User registration failed")
+            return False
+    except Exception as e:
+        print("Sign in failed")
+        return None
+
+def login(userid, userps):
+    try:
+        body = {
+            "email": userid,
+            "password": userps
+        }
+        login_result = requests.post(LOGIN_ADDRESS, body)
+        token = 'andy ' + json.loads(login_result.text)['token']
+        print("Login succeeded, token updated in cache")
+        cached_users[userid] = token
+        return token
+    except Exception as e:
+        print("Login in failed")
+        return None
+
 def verify_fb_token(token_sent):
     if token_sent == VERIFY_TOKEN:
-        print(token_sent)
+        print("Token verification ok!")
         return request.args.get("hub.challenge")
     return 'Invalid verification token'
 

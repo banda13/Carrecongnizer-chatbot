@@ -22,3 +22,10 @@ WEBSITE_RESPONSE = WEBSITE_ROOT if WEBSITE_ROOT is not None else DEFAULT_WEBSITE
 
 SUCCESSFUL_IMAGE_RECOGNITION_RESPONSE = "Nice car, it seems to be a %s %s."
 ERROR_IMAGE_RECOGNITION_RESPONSE = "Sorry I didn't recognize this image, could you please send me an another from a different angle?"
+
+CLASSIFICATION_STARTED = "Classification started, this can take some time.."
+TO_MANY_ATTACHMENTS = "You send to many attachments, I will classify the first one!"
+TO_LITTLE_ATTACHMENTS = "Wow I don't know how did you not sent any attachments.."
+BAD_ATTACHMENT_TYPE = "Please send me image"
+UNKNOWN_CLASSIFICATION_ERROR = "Oppsie, unexpected error occurred while classification"
+AUTHENTICATION_ERROR = "Authentication failed"
