@@ -1,0 +1,5 @@
+##COMMANDS!
+WELCOME_COMMAND = 'hi'
+HELP_COMMAND = "help"
+WEBSITE_LINK = "website"
+DETAILS = "details"
