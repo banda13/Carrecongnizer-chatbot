@@ -4,7 +4,6 @@ import requests
 import urllib.request
 import json
 
-from PIL import Image
 from flask import Flask, request
 from pymessenger import Bot
 
