@@ -23,7 +23,7 @@ def availability_check():
     return "Ok, server is up, and listening!"
 
 def get_formatted_classification_result(result):
-    return result._result[0].['cars']
+    return result._result[0]['cars']
 
 
 @app.route("/", methods=['GET', 'POST'])
