@@ -1,6 +1,7 @@
 import os
 import time
 import requests
+import urllib.request
 import json
 from flask import Flask, request
 from pymessenger import Bot
@@ -21,6 +22,9 @@ cached_users = {}
 def availability_check():
     return "Ok, server is up, and listening!"
 
+def get_formatted_classification_result(result):
+    return result._result[0].['cars']
+
 
 @app.route("/", methods=['GET', 'POST'])
 def receive_message():
@@ -39,11 +43,11 @@ def receive_message():
                     msg = message['message'].get('text').strip().lower()
                     if msg == WELCOME_COMMAND:
                         send_message(recipient_id, WELCOME_MESSAGE % message['sender'])
-                    if msg == HELP_COMMAND:
+                    elif msg == HELP_COMMAND:
                         send_message(recipient_id, HELP_RESPONSE)
-                    if msg == DETAILS:
+                    elif msg == DETAILS:
                         send_message(recipient_id, NOT_IMPLEMENTED_YET)
-                    if msg == WEBSITE_LINK:
+                    elif msg == WEBSITE_LINK:
                         send_message(recipient_id, WEBSITE_RESPONSE)
                     else:
                         send_message(recipient_id, ERROR_MESSAGE)
@@ -106,14 +110,15 @@ def forward_request(recipient_id, img_url):
 
 
 def do_classification(token, img_url):
-    filename = str(time.time()) + 'pic.jpg'
+    filename = str(time.time()) + '_pic.jpg'
     try:
-        r = requests.get(img_url, allow_redirects=True)
+        # r = requests.get(img_url, allow_redirects=True)
 
-        img_file = open(filename, 'wb').write(r.content)
+        img = urllib.request.urlretrieve(img_url, filename)
+        # img_file = open(filename, 'wb').write(r.content)
         print("File download succeeded")
 
-        files = {'carpic': img_file}
+        files = {'carpic': img}
         headers = {'Authorization': token}
 
         print("Classification started")
