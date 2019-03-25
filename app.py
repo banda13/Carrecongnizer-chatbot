@@ -116,17 +116,18 @@ def do_classification(token, img_url):
 
         img = urllib.request.urlretrieve(img_url, filename)
         # img_file = open(filename, 'wb').write(r.content)
-        print("File download succeeded")
+        with open(img, 'rb') as f:
+            print("File download succeeded")
 
-        files = {'carpic': img}
-        headers = {'Authorization': token}
+            files = {'carpic': f}
+            headers = {'Authorization': token}
 
-        print("Classification started")
-        class_result = requests.post(CLASSIFICATION_FORWARD_ADDRESS, headers=headers, files=files)
-        print("Classification ended")
-        os.remove(filename)
-        print(class_result.text)
-        return class_result.text
+            print("Classification started")
+            class_result = requests.post(CLASSIFICATION_FORWARD_ADDRESS, headers=headers, files=files)
+            print("Classification ended")
+            os.remove(filename)
+            print(class_result.text)
+            return class_result.text
     except Exception as e:
         print("Classification failed.. %s" % str(e))
         os.remove(filename)
