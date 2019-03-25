@@ -3,6 +3,8 @@ import time
 import requests
 import urllib.request
 import json
+
+from PIL import Image
 from flask import Flask, request
 from pymessenger import Bot
 
@@ -113,10 +115,8 @@ def do_classification(token, img_url):
     filename = str(time.time()) + '_pic.jpg'
     try:
         # r = requests.get(img_url, allow_redirects=True)
-
-        img = urllib.request.urlretrieve(img_url, filename)
-        # img_file = open(filename, 'wb').write(r.content)
-        with open(img, 'rb') as f:
+        urllib.request.urlretrieve(img_url, filename)
+        with open(filename, 'r') as f:
             print("File download succeeded")
 
             files = {'carpic': f}
@@ -179,6 +179,9 @@ def send_message(recipient_id, response):
     bot.send_text_message(recipient_id, response)
     return "success"
 
-if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+# if __name__ == "__main__":
+# #     app.run(host='0.0.0.0')
+
+forward_request("1863824683702508", "https://www.autoscout24.hu/assets/auto/images/model/audi/audi-100/audi-100-l-01.jpg")
+
 
