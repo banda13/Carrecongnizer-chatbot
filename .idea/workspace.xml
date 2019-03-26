@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5ef7cbce-c00f-43a9-8575-ecaeb5b1ce78" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/1553554133.0550213_pic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1553554188.9456878_pic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/1553554267.6101232_pic.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/img1.jpg" beforeDir="false" />
-    </list>
+    <list default="true" id="5ef7cbce-c00f-43a9-8575-ecaeb5b1ce78" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,14 +54,14 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="3" />
-          <entry key="py" value="3140" />
+          <entry key="py" value="3168" />
           <entry key="txt" value="59" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="62" />
-          <entry key="Python" value="3140" />
+          <entry key="Python" value="3168" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -97,12 +90,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="118" column="44" lean-forward="true" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="44" />
+            <state relative-caret-position="-630">
+              <caret line="137" column="60" selection-start-line="137" selection-start-column="60" selection-end-line="137" selection-end-column="60" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <marker date="1553556126338" expanded="true" signature="1068:1204" ph="..." />
-                <marker date="1553556126338" expanded="true" signature="1164:1204" ph="..." />
+                <marker date="1553584303242" expanded="true" signature="1068:1204" ph="..." />
+                <marker date="1553584303242" expanded="true" signature="1164:1204" ph="..." />
               </folding>
             </state>
           </provider>
@@ -120,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/system_properties.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="59" />
+            <state relative-caret-position="17">
+              <caret line="1" column="78" selection-start-line="1" selection-start-column="78" selection-end-line="1" selection-end-column="78" />
             </state>
           </provider>
         </entry>
@@ -161,18 +154,18 @@
         <option value="$PROJECT_DIR$/commands.py" />
         <option value="$PROJECT_DIR$/system-properties.py" />
         <option value="$PROJECT_DIR$/webhook-server.py" />
-        <option value="$PROJECT_DIR$/system_properties.py" />
         <option value="$PROJECT_DIR$/responses.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/app.py" />
+        <option value="$PROJECT_DIR$/system_properties.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="23" />
-    <option name="y" value="14" />
-    <option name="width" value="1215" />
-    <option name="height" value="1026" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-1288" />
+    <option name="y" value="37" />
+    <option name="width" value="1296" />
+    <option name="height" value="1000" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -253,15 +246,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1294" height="1047" extended-state="1" />
+    <frame x="-1288" y="37" width="1296" height="1000" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20382166" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20349762" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33296824" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35103926" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.37787515" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -303,13 +296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/system_properties.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/responses.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -330,14 +316,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/system_properties.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="78" selection-start-line="1" selection-start-column="78" selection-end-line="1" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="118" column="44" lean-forward="true" selection-start-line="118" selection-start-column="4" selection-end-line="118" selection-end-column="44" />
+        <state relative-caret-position="-630">
+          <caret line="137" column="60" selection-start-line="137" selection-start-column="60" selection-end-line="137" selection-end-column="60" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
-            <marker date="1553556126338" expanded="true" signature="1068:1204" ph="..." />
-            <marker date="1553556126338" expanded="true" signature="1164:1204" ph="..." />
+            <marker date="1553584303242" expanded="true" signature="1068:1204" ph="..." />
+            <marker date="1553584303242" expanded="true" signature="1164:1204" ph="..." />
           </folding>
         </state>
       </provider>

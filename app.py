@@ -137,12 +137,10 @@ def do_classification(token, img_url):
         print("Classification started")
         class_result = requests.post(CLASSIFICATION_FORWARD_ADDRESS, headers=headers, data=data)
         print("Classification ended")
-        os.remove(filename)
         print(class_result.text)
         return class_result.text
     except Exception as e:
         print("Classification failed.. %s" % str(e))
-        os.remove(filename)
         return None
 
 def try_sign_in(userid, userps):
@@ -191,9 +189,9 @@ def send_message(recipient_id, response):
     bot.send_text_message(recipient_id, response)
     return "success"
 
-# if __name__ == "__main__":
-# #     app.run(host='0.0.0.0')
+if __name__ == "__main__":
+    app.run(host='0.0.0.0')
 
-forward_request("1863824683702508", "https://www.autoscout24.hu/assets/auto/images/model/audi/audi-100/audi-100-l-01.jpg")
+# forward_request("1863824683702508", "https://www.autoscout24.hu/assets/auto/images/model/audi/audi-100/audi-100-l-01.jpg")
 
 
