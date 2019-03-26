@@ -1,14 +1,8 @@
-import os
 import time
-import cv2
-import numpy as np
-from io import BytesIO
 
 import requests
-import urllib.request
 import json
 
-from PIL import Image
 from flask import Flask, request
 from pymessenger import Bot
 
