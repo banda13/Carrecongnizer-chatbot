@@ -132,7 +132,7 @@ def do_classification(token, img_url):
         class_result = requests.post(CLASSIFICATION_FORWARD_ADDRESS, headers=headers, data=data)
         print("Classification ended")
         print(class_result.text)
-        return class_result.text
+        return class_result.text[:30]
     except Exception as e:
         print("Classification failed.. %s" % str(e))
         return None
