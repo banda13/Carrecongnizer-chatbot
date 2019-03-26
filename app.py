@@ -1,9 +1,14 @@
 import os
 import time
+import cv2
+import numpy as np
+from io import BytesIO
+
 import requests
 import urllib.request
 import json
 
+from PIL import Image
 from flask import Flask, request
 from pymessenger import Bot
 
@@ -114,19 +119,27 @@ def do_classification(token, img_url):
     filename = str(time.time()) + '_pic.jpg'
     try:
         # r = requests.get(img_url, allow_redirects=True)
-        urllib.request.urlretrieve(img_url, filename)
-        with open(filename, 'r') as f:
-            print("File download succeeded")
+        # response = requests.get(img_url).content
+        # img = Image.open(BytesIO(response.content))
+        # img.save(img, "JPEG")
+        # img.seek(0)
+        # mydata = urllib.request.urlopen(img_url).read()
+        # url_response = urllib.request.urlopen(img_url)
+        # img_array = np.array(bytearray(url_response.read()), dtype=np.uint8)
+        # img = cv2.imdecode(img_array, -1)
+        # with open(response, 'rb') as f:
+        # f.write(mydata)
+        print("File download succeeded")
 
-            files = {'carpic': f}
-            headers = {'Authorization': token}
+        data = {'url': img_url}
+        headers = {'Authorization': token}
 
-            print("Classification started")
-            class_result = requests.post(CLASSIFICATION_FORWARD_ADDRESS, headers=headers, files=files)
-            print("Classification ended")
-            os.remove(filename)
-            print(class_result.text)
-            return class_result.text
+        print("Classification started")
+        class_result = requests.post(CLASSIFICATION_FORWARD_ADDRESS, headers=headers, data=data)
+        print("Classification ended")
+        os.remove(filename)
+        print(class_result.text)
+        return class_result.text
     except Exception as e:
         print("Classification failed.. %s" % str(e))
         os.remove(filename)
