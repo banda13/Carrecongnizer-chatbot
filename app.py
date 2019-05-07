@@ -36,6 +36,9 @@ def receive_message():
        output = request.get_json()
        for event in output['entry']:
           messaging = event['messaging']
+          timestamp = messaging['time']
+          print(timestamp)
+          print(len(messaging))
           for message in messaging:
             if message.get('message'):
                 recipient_id = message['sender']['id']

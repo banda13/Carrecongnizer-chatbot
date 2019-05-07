@@ -14,9 +14,12 @@
     <session id="1849068550">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
+          <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.3" value="3" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.opened" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -93,9 +96,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="134" column="36" selection-start-line="134" selection-start-column="36" selection-end-line="134" selection-end-column="36" />
+            <state relative-caret-position="136">
+              <caret line="56" column="73" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="73" />
               <folding>
+                <element signature="e#0#11#0" expanded="true" />
                 <marker date="1553587136507" expanded="true" signature="961:1097" ph="..." />
                 <marker date="1553587136507" expanded="true" signature="1057:1097" ph="..." />
               </folding>
@@ -163,10 +167,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-7" />
-    <option name="width" value="1294" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="y" value="-10" />
+    <option name="width" value="3220" />
+    <option name="height" value="1320" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -179,8 +184,8 @@
         <subPane>
           <expand>
             <path>
-              <item name="carrecognizer-messenger-old" type="b2602c69:ProjectViewProjectNode" />
-              <item name="carrecognizer-messenger-old" type="462c0819:PsiDirectoryNode" />
+              <item name="carrecognizer-messenger" type="b2602c69:ProjectViewProjectNode" />
+              <item name="carrecognizer-messenger" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -190,7 +195,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file://D:/Projects/carrecognizer-messenger-old/requirements.txt" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../carrecognizer-preclassifier" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../CarRecognizer" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -247,10 +252,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1294" height="1047" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3415605" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.08261732" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -308,9 +313,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="134" column="36" selection-start-line="134" selection-start-column="36" selection-end-line="134" selection-end-column="36" />
+        <state relative-caret-position="136">
+          <caret line="56" column="73" selection-start-line="56" selection-start-column="51" selection-end-line="56" selection-end-column="73" />
           <folding>
+            <element signature="e#0#11#0" expanded="true" />
             <marker date="1553587136507" expanded="true" signature="961:1097" ph="..." />
             <marker date="1553587136507" expanded="true" signature="1057:1097" ph="..." />
           </folding>
